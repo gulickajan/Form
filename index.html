@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulár</title>
+    <link rel="stylesheet" href="formular.css">
+</head>
+<body>
+<header>
+    <h1>Spokojnosť zákazníka</h1>
+</header>
+<main>
+    <form action="mailto:feistu03@gmail.com" method="post" enctype="text/plain">
+    <section class="wrapper">
+        <div class="gbox"><h5>Pohlavie*</h5>
+            <label class="container">Muž
+                <input type="checkbox" >
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Žena
+                <input type="checkbox" >
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div class="gbox" id="spokojnost"><h5>Spokojnosť*</h5>
+            <label class="container">Spokojný
+                <input type="checkbox" >
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Nespokojný
+                <input type="checkbox" id="nespokojny" onchange="hiddenTextField()">
+                <span class="checkmark"></span>
+            </label>
+            <div>
+                <label for="nespokojnost">Správa pre nespokojných</label>
+                <input type="text" id="nespokojnost" name="firstname" placeholder="Napíšte čo sa Vám nepáči..">
+            </div>
+        </div>
+
+        <div class="gbox"><h5>Spoľahlivosť doručenia*</h5>
+            <label class="container">Zásielka prišla
+                <input type="checkbox" name="prisla" value="prislo" id="prisloTo" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Zásielka neprišla
+                <input type="checkbox"  name="neprisla" value="neprislo" id="neprisloTo" >
+                <span class="checkmark"></span>
+            </label>
+            <div id="dalsie" onchange="hiddenTextField()">
+                <label class="container">Zostala u nás ?
+                    <input type="checkbox" value="zos">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Zostala v depe ?
+                    <input type="checkbox" value="dep" >
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+
+
+    <div>
+
+            <label for="fname">Meno*</label>
+            <input type="text" id="fname" name="firstname" onchange="zacPismeno1()" placeholder="napr. Ferko">
+            <span class="wrongCollor" id="zleM"></span>
+
+            <label for="lname"><br>Priezvisko</label>
+            <input type="text" id="lname" name="lastname" onchange="zacPismeno2()" placeholder="napr. Novák" >
+            <span class="wrongCollor" id="zleP"></span>
+
+            <label for="date"><br>Dátum narodenia*</label>
+            <input type="date" id="date" >
+
+            <label for="age"><br>Vek*</label>
+            <input type="text" id="age" name="ageIn" onchange="fnCalculateAge()" placeholder="napr. 24">
+            <span class="wrongCollor" id="zlyAge"></span>
+
+            <label for="mail"><br>Mail*</label>
+            <input type="text" id="mail" name="mailIn" placeholder="napr. xxx@xxx.sk">
+
+            <label for="country"><br>Bydlisko*</label>
+            <select id="country" name="country">
+                <option value="levice">Levice</option>
+                <option value="bratislava">Bratislava</option>
+                <option value="košice">Košice</option>
+            </select>
+
+        </div>
+
+        </section>
+        <input type="submit" value="Submit">
+    </form>
+</main>
+<footer>
+
+    <script src="formular.js"></script>
+    <p>Označenie * znamená povinné pole</p>
+</footer>
+</body>
+</html>
